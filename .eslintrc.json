@@ -1,3 +1,42 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",         // Enforces best practices for Next.js projects
+    "plugin:@typescript-eslint/recommended",  // Recommended rules from @typescript-eslint
+    "plugin:prettier/recommended"   // Uses eslint-config-prettier to disable conflicting rules with Prettier
+  ],
+  "plugins": [
+    "@typescript-eslint",           // Enables TypeScript specific linting rules
+    "prettier"                      // Allows ESLint to recognize Prettier issues
+  ],
+  "parser": "@typescript-eslint/parser",  // Specifies the ESLint parser for TypeScript
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true                    // Enable JSX parsing
+    },
+    "ecmaVersion": "latest",         // Use the latest ECMAScript features
+    "sourceType": "module"           // Enable ECMAScript modules
+  },
+  "rules": {
+    "prettier/prettier": "error",    // Show Prettier issues as ESLint errors
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",   // Ignore variables prefixed with `_`
+        "varsIgnorePattern": "^_"    // Ignore variables prefixed with `_`
+      }
+    ],
+    "react/react-in-jsx-scope": "off", // Disable the need to import React in scope
+    "no-console": ["warn", { "allow": ["warn", "error"] }], // Warn for console logs except warn and error
+    "no-debugger": "warn"            // Warn for debugger usage
+  },
+  "settings": {
+    "react": {
+      "version": "detect"            // Automatically detect the React version
+    }
+  }
 }
