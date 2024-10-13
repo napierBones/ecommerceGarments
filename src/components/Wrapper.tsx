@@ -8,7 +8,9 @@ const Wrapper = ({
   children: ReactNode;
 }) => {
   return (
-    <div className={clsx('px-4 md:px-8 lg:px-16 xl:32 2xl:px-64', className)}>
+    <div
+      className={clsx('px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64', className)}
+    >
       {children}
     </div>
   );
